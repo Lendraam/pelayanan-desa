@@ -45,7 +45,7 @@ export default function HomePage() {
             Pelayanan Online Desa Linggar
           </h1>
           <p className="mt-3 text-lg md:text-2xl italic text-green-100">
-            "Linggar Manunggal"
+            &quot;Linggar Manunggal&quot;
           </p>
           <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-green-200">
             Website ini hadir untuk memudahkan masyarakat Desa Linggar dalam
