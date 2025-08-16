@@ -20,7 +20,17 @@ export default function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    setIsLoggedIn(typeof window !== "undefined" && localStorage.getItem("isLoggedIn") === "true");
+    const syncLogin = () => {
+      setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+    };
+    syncLogin();
+    window.addEventListener("storage", syncLogin);
+    // Juga update saat navigasi (misal: setelah login)
+    const interval = setInterval(syncLogin, 500);
+    return () => {
+      window.removeEventListener("storage", syncLogin);
+      clearInterval(interval);
+    };
   }, []);
 
   const handleLogout = async () => {

@@ -39,12 +39,12 @@ export default function LoginPage() {
     if (!res.ok) {
       setError(data.error || "Login gagal");
     } else {
-      // Simpan status login
+      // Simpan status login sebelum redirect
       if (typeof window !== "undefined") {
         localStorage.setItem("isLoggedIn", "true");
       }
-      // Jika admin, redirect ke dashboard admin
-      if (data.isAdmin) {
+      // Jika role admin, redirect ke dashboard admin
+      if (data.role === "admin" || (data.user && data.user.role === "admin")) {
         router.push("/admin");
       } else {
         router.push("/");

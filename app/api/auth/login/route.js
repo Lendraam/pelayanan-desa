@@ -18,5 +18,14 @@ export async function POST(req) {
   }
   // Sesi sederhana: return user tanpa password
   const { password: _, ...userData } = user;
-  return new Response(JSON.stringify({ success: true, user: userData }), { status: 200 });
+  // Pastikan isAdmin dan email dikirim ke frontend
+  return new Response(
+    JSON.stringify({
+      success: true,
+      isAdmin: userData.isAdmin || false,
+      email: userData.email,
+      user: userData,
+    }),
+    { status: 200 }
+  );
 }
