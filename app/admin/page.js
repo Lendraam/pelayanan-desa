@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Home, FileText, Users, Settings } from "lucide-react";
 
 export default function AdminPage() {
